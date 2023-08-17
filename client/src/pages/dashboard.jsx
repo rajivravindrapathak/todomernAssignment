@@ -44,7 +44,7 @@ const DashboardPage = () => {
     return ( 
         <>
             <h1>DashboardPage</h1>
-            {/* <div>
+            <div>
                 {
                     showTodoForm && showTodoForm.map((todo, index) => {
                         return  (
@@ -55,7 +55,7 @@ const DashboardPage = () => {
                                 )
                     })
                 }
-            </div> */}
+            </div>
             <Button
                 onClick={() => setShowTodoForm(true)}
             > create todos 
