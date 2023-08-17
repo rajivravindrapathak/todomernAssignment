@@ -9,8 +9,10 @@ const TodoController = Router()
 
 // todo api for getting data
 TodoController.get("/getuser-todo", async (req, res) => {
-    const gettodo = await TodoModel.find({ userId : req.body.userId })
-    res.status(200).send({ msg: 'todo get successfully', gettodo })
+    const { user_id } = req.body
+    const gettodo = await TodoModel.findOne({_id: user_id })
+    const { heading } = gettodo
+    res.status(200).send({ msg: 'todo get successfully', heading })
 })
 
 // todo api for posting data

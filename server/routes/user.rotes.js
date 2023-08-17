@@ -22,9 +22,9 @@ userController.post('/signup', (req, res) => {
         })  
         try {    
             await user.save()
-            res.send({ msg: "data send", user})
+            res.status(200).send({ msg: "data send", user})
         } catch (error) {
-            res.send({ msg:"data not send succssfully", error })
+            res.status(404).send({ msg:"data not send succssfully", error })
         }
     })
 })
@@ -40,9 +40,9 @@ userController.post('/login', authentication, async (req, res) => {
         }
         if(result) {
             const token = jwt.sign({ userId: user._id }, process.env.JWT_SCRET)
-            res.send({ msg: "login successful", token })
+            res.status(200).send({ msg: "login successful", token })
         } else {
-            res.send({ msg: "not login"})
+            res.status(404).send({ msg: "not login"})
         }
     })
 })
