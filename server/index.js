@@ -11,8 +11,10 @@ app.use(express.json())
 app.use(cors())
 
 const {userController } = require('./routes/user.rotes')
+const { TodoController } = require('./routes/todo.routes')
 
-app.use('/', userController)   
+app.use('/', userController) 
+app.use('/', TodoController)  
 
 app.listen(PORT, async () => {
     try {
